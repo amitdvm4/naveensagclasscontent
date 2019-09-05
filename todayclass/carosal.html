@@ -1,0 +1,13 @@
+<img src='1.jpg' width="500px" />
+
+
+<script>
+var i=1;
+setInterval(function(){
+   i=i+1;
+   document.querySelector('img').setAttribute('src',i+'.jpg');
+   if(i == 3){
+      i=0;
+   }
+},2000);
+</script>

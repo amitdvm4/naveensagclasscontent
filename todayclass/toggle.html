@@ -1,0 +1,68 @@
+<style>
+   .bulb{
+    border: 1px solid red;
+    height: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+   }
+   .ball{
+    height: 50px;
+    width: 50px;
+    border: 2px solid red;
+    border-radius: 50%;
+    margin-top: 20px;
+    display: inline-block;
+    position: relative;
+   }
+</style>
+<input type='button' value='off' onclick="fnSwitchClick()" />
+<div class='bulb'>
+
+</div>
+
+
+<p>
+<input type='button' value='1' onclick="fnShowImg(1)" />
+<input type='button' value='2' onclick="fnShowImg(2)"  />
+<input type='button' value='3' onclick="fnShowImg(3)"  />
+<div>
+   <img alt="click above button to show image"  width="200px" height="200px"/>
+</div>
+</p>
+
+<p>
+      <div> <input type='button' value='start' onclick="fnRoll()" /></div> 
+      <div class='ball'>
+
+      </div>
+</p>
+<script>
+    function fnRoll(){
+        var i=1;
+      var inter=  setInterval(function(){
+            i=i+1;
+            document.querySelector('.ball').style.left=i+'px';
+            if(i==500){
+                clearInterval(inter)
+            }
+        },50)
+             
+       
+    }
+    function fnShowImg(no){
+         ;
+         document.querySelector('img').setAttribute('src',no+'.jpg');
+    }
+    function fnSwitchClick(){
+        var btnRef=document.querySelector('input');
+        var value=btnRef.getAttribute('value');
+
+        if(value == 'off'){
+            btnRef.setAttribute('value','on');
+            document.querySelector('div').style.background='yellow'
+        }else{
+            btnRef.setAttribute('value','off');
+            document.querySelector('div').style.background='white'
+        }
+    }
+</script>

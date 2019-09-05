@@ -1,0 +1,48 @@
+<style>
+    .board{
+        height: 400px;
+        width: 400px;
+         border: 2px solid red;
+         position: relative;
+    }
+    .baloon{
+        position: absolute;
+    height: 70px;
+    width: 70px;
+    border: 1px solid blue;
+    border-radius: 50%;
+    display: inline-block;
+    top: 150;
+    left: 300;
+    }
+    .arrow{
+        display: inline-block;
+    border: 2px solid red;
+    width: 50px;
+    position: absolute;
+    top: 170;
+    }
+</style>
+
+<div class="board">
+       <div class='baloon'></div>
+       <div class="arrow"></div>
+</div>
+
+<P>
+    <input type='button' value='hit' onclick="fnHit()" />
+</P>
+
+<script>
+    function fnHit(){
+        var left=0;
+      var myInterval=  setInterval(function(){
+            left++;
+            document.querySelector('.arrow').style.left=left +'px';
+            if(left == 250){
+                clearInterval(myInterval);
+                document.querySelector('.baloon').style.display='none';
+            }
+        },25);
+    }
+</script>
